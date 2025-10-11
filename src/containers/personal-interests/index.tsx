@@ -50,7 +50,7 @@ const SkeletonOne = () => {
       <EvervaultCard
         text={
           <a
-            href="/files/[SoftwareEngineerIntern] Kiet Do.pdf"
+            href="/kietdo-portfolio/files/"
             download
             className="flex flex-col items-center justify-center"
           >

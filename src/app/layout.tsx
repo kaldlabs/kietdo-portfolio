@@ -14,46 +14,35 @@ const exo2 = Exo_2({
 })
 
 export const metadata: Metadata = {
-  title: "Kiet Do Portfolio",
+  title: "Lab Portfolio",
   description:
-    "Explore Kiet Do's portfolio – a skilled Python Developer specializing in data science, machine learning, and backend development. Showcasing innovative projects, Python expertise, and high-performance applications.",
+    "Explore our innovative lab portfolio – showcasing cutting-edge research in AI, computer vision, and advanced technology solutions. Featuring state-of-the-art projects and technical expertise.",
   keywords: [
-    "Python Developer",
-    "Data Scientist",
-    "Java Engineer",
-    "Kiet Do Portfolio",
-    "Software Development",
+    "AI Research",
+    "Computer Vision",
     "Machine Learning",
+    "Lab Portfolio",
+    "Research Development",
+    "Deep Learning",
     "Data Engineering",
     "AI Development",
-    "Backend Technologies",
+    "Advanced Technology",
   ],
   openGraph: {
-    title: "Kiet Do Portfolio",
+    title: "Lab Portfolio",
     description:
-      "Discover Kiet Do's expertise in Python Development, Data Science, and Machine Learning. View projects, case studies, and technical skills.",
-    url: "https://dolyanhkiet.id.vn",
+      "Discover our expertise in AI Research, Computer Vision, and Machine Learning. View innovative projects, research papers, and technical achievements.",
+    url: "https://kyoz004.github.io/lab-portfolio/",
     type: "website",
-    // images: [
-    //   {
-    //     url: ".png",
-    //     width: 1200,
-    //     height: 630,
-    //     alt: "Kiet Do Portfolio",
-    //   },
-    // ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kiet Do Portfolio",
+    title: "Lab Portfolio",
     description:
-      "Explore Kiet Do's frontend projects and expertise in React, and modern web development.",
-    // images: [
-    //   ".png",
-    // ],
+      "Explore our innovative research projects and expertise in AI, computer vision, and advanced technology solutions.",
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: "/lab-portfolio/favicon.ico",
   },
 }
 
@@ -65,13 +54,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${exo2.variable} antialiased scroll-smooth w-full max-w-dvw overflow-x-hidden`}
+        className={`${exo2.variable} antialiased scroll-smooth w-full max-w-dvw`}
       >
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           disableTransitionOnChange
         >
+          {/* Đảm bảo component này không có overflow:hidden */}
           <LayoutWithHeader>{children}</LayoutWithHeader>
         </ThemeProvider>
         <Analytics />

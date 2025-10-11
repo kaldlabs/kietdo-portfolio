@@ -25,26 +25,16 @@ import {
 
 const links = [
   {
-    title: "All",
-    href: "/",
-  },
-  {
-    title: "Experience",
-    href: "/experience",
-  },
-  {
     title: "Projects",
-    href: "/projects",
-    isComingSoon: true,
+    href: "/",
   },
   {
     title: "About",
     href: "/about",
-    isComingSoon: true,
   },
-]
+];
 
-const pathNameDisableHeaderScroll = [""]
+const pathNameDisableHeaderScroll = [""];
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -98,9 +88,13 @@ export const Header = () => {
               : "bg-transparent w-full xl:w-[70%]"
           )}
         >
-          <div className="flex items-center gap-2">
-            <Logo className="size-14 hover:scale-110 transition-transform duration-300" />
-          </div>
+          {/* --- THAY ĐỔI 1: WRAP LOGO TRONG LINK --- */}
+          <Link href="/" className="flex items-center gap-2">
+            <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              LAB
+            </span>
+          </Link>
+          
           <div className="flex-1 items-center gap-6 justify-center hidden sm:flex">
             {links.map((link) => (
               <HeaderLink
@@ -136,7 +130,6 @@ export const Header = () => {
                 <DrawerHeader className="flex justify-between">
                   <DrawerTitle className="flex items-center gap-2">
                     <Logo className="size-14" />
-                    dolyanhkiet.id.vn
                   </DrawerTitle>
                   <DrawerClose
                     asChild
@@ -162,11 +155,6 @@ export const Header = () => {
                       onClick={() => setIsDrawerOpen(false)}
                     >
                       {link.title}
-                      {link.isComingSoon && (
-                        <span className="text-sm bg-blue-300/10 text-blue-500 px-2 py-1 rounded-full">
-                          Coming Soon
-                        </span>
-                      )}
                     </Link>
                   ))}
                 </div>
@@ -220,6 +208,7 @@ const ScrollToTopButton = () => {
   )
 }
 
+// --- THAY ĐỔI 2: CẬP NHẬT STYLE CHO NÚT ACTIVE ---
 const HeaderLink = ({ title, href }: { title: string; href: string }) => {
   const pathname = usePathname()
   const isActive = pathname === href
@@ -228,16 +217,13 @@ const HeaderLink = ({ title, href }: { title: string; href: string }) => {
     <Link
       href={href}
       className={cn(
-        "relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-neutral-900 dark:hover:text-neutral-100 rounded-xl",
+        "px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-lg",
         isActive
-          ? "text-neutral-900 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-800 shadow-sm"
-          : "text-neutral-500 dark:text-neutral-500 hover:bg-neutral-50 dark:hover:bg-neutral-900/50"
+          ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 shadow-sm"
+          : "text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
       )}
     >
-      <span className="relative z-10">{title}</span>
-      {isActive && (
-        <span className="absolute inset-0 bg-gradient-to-r from-blue-100/50 to-purple-100/50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl" />
-      )}
+      {title}
     </Link>
   )
 }

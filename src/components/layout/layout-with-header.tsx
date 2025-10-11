@@ -16,7 +16,7 @@ export const LayoutWithHeader = ({
           {children}
         </main>
         <footer className="text-sm md:text-lg row-start-3 flex gap-[24px] flex-wrap items-center justify-center text-zinc-600 p-4">
-          © 2025 Kiet Do. All rights reserved.
+          © 2025 LAB. All rights reserved.
         </footer>
       </HeroBackground>
     </div>

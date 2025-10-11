@@ -12,12 +12,10 @@ import { memo, useEffect, useState } from "react"
 
 const texts = [
   "Software Developer",
-  "AI Enthusiast",
   "Backend Developer",
   "Data Analyst",
   "Python Developer",
   "NLP Learner",
-  "Tech Explorer",
 ];
 
 
@@ -133,7 +131,7 @@ export const MyUniverse = () => {
             transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: 0.5 }}
             className="inline-block"
           >
-            Clean Code
+            Build once, run anywhere. 
           </motion.span>
         </motion.div>
 
@@ -171,7 +169,7 @@ export const MyUniverse = () => {
             transition={{ duration: 5, repeat: Infinity }}
             className="inline-block"
           >
-            Python Developer 🐍 | Java Developer ☕
+            Software Developer 🐍|☕
           </motion.div>
           <br />{" "}
           <motion.span 
@@ -199,8 +197,8 @@ export function CompareDemo() {
       whileHover={{ scale: 1.02 }}
       className="w-full border rounded-3xl dark:bg-neutral-900 bg-neutral-100 border-neutral-200 dark:border-neutral-800 overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
       <Compare
-        firstImage="/images/slides1.png"
-        secondImage="/images/slides2.png"
+        firstImage="/lab-portfolio/images/slides1.png"
+        secondImage="/lab-portfolio/images/slides2.png"
         firstImageClassName="object-cover object-left-top"
         secondImageClassname="object-cover object-left-top"
         className="h-[200px] sm:h-[250px] md:h-[400px] lg:h-[500px] w-full"

@@ -1,6 +1,6 @@
 "use client"
 
-import { Box, Lock, Search, Settings, Sparkles } from "lucide-react"
+import { Code, Server, Terminal, Database, GitMerge } from "lucide-react"
 import { GlowingEffect } from "@/components/ui/glowing-effect"
 
 export function KeySkill() {
@@ -8,37 +8,37 @@ export function KeySkill() {
     <ul className="grid grid-cols-1 grid-rows-none gap-4 md:grid-cols-12 md:grid-rows-3 lg:gap-4 xl:max-h-[34rem] xl:grid-rows-2">
       <GridItem
         area="md:[grid-area:1/1/2/7] xl:[grid-area:1/1/2/5]"
-        icon={<Box className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="Do things the right way"
-        description="Running out of copy so I'll write anything."
+        icon={<Code className="h-4 w-4 text-black dark:text-neutral-400" />}
+        title="Development Stack"
+        description="Building robust applications with a strong foundation in Python, Java, and JavaScript, utilizing frameworks like Flask, Django, and React to create efficient, scalable solutions."
       />
 
       <GridItem
         area="md:[grid-area:1/7/2/13] xl:[grid-area:2/1/3/5]"
-        icon={<Settings className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="The best AI code editor ever."
-        description="Yes, it's true. I'm not even kidding. Ask my mom if you don't believe me."
+        icon={<Server className="h-4 w-4 text-black dark:text-neutral-400" />}
+        title="DevOps & Infrastructure"
+        description="Automating development and deployment processes using Docker for containerization and Jenkins for CI/CD pipelines. Experience with cloud services like GCP for scalable infrastructure."
       />
 
       <GridItem
         area="md:[grid-area:2/1/3/7] xl:[grid-area:1/5/3/8]"
-        icon={<Lock className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="You should buy Aceternity UI Pro"
-        description="It's the best money you'll ever spend"
+        icon={<Terminal className="h-4 w-4 text-black dark:text-neutral-400" />}
+        title="Linux Systems & Automation"
+        description="Proficient in managing and operating on Linux environments (Ubuntu, Debian), using Bash/Shell scripting and systemd to automate tasks and manage services effectively via the command line."
       />
 
       <GridItem
         area="md:[grid-area:2/7/3/13] xl:[grid-area:1/8/2/13]"
-        icon={<Sparkles className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="This card is also built by Cursor"
-        description="I'm not even kidding. Ask my mom if you don't believe me."
+        icon={<GitMerge className="h-4 w-4 text-black dark:text-neutral-400" />}
+        title="MLOps & Monitoring"
+        description="Implementing MLOps pipelines for machine learning models using MLflow for tracking and TensorFlow Serving for deployment, ensuring efficient model lifecycle management."
       />
 
       <GridItem
         area="md:[grid-area:3/1/4/13] xl:[grid-area:2/8/3/13]"
-        icon={<Search className="h-4 w-4 text-black dark:text-neutral-400" />}
-        title="Coming soon on Aceternity UI"
-        description="I'm writing the code as I record this, no shit."
+        icon={<Database className="h-4 w-4 text-black dark:text-neutral-400" />}
+        title="Data & Databases"
+        description="Working with various databases including PostgreSQL, MongoDB, and Neo4j. Using tools like Dataiku and Streamlit to process and visualize data."
       />
     </ul>
   )

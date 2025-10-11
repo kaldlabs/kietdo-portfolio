@@ -6,6 +6,7 @@ import React, {
   useState,
   createContext,
   useContext,
+  useCallback,
   JSX,
 } from "react"
 import {
@@ -44,6 +45,8 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
   const [canScrollLeft, setCanScrollLeft] = React.useState(false)
   const [canScrollRight, setCanScrollRight] = React.useState(true)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [direction, setDirection] = useState(0); // -1: left, 1: right
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     if (carouselRef.current) {
@@ -60,16 +63,23 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
     }
   }
 
+  const animateScroll = (dir: number) => {
+    setDirection(dir);
+    setIsAnimating(true);
+    setTimeout(() => {
+      if (carouselRef.current) {
+        carouselRef.current.scrollBy({ left: dir * 300, behavior: "smooth" })
+      }
+      setIsAnimating(false);
+    }, 250); // thời gian khớp với animation
+  }
+
   const scrollLeft = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: -300, behavior: "smooth" })
-    }
+    if (!isAnimating) animateScroll(-1);
   }
 
   const scrollRight = () => {
-    if (carouselRef.current) {
-      carouselRef.current.scrollBy({ left: 300, behavior: "smooth" })
-    }
+    if (!isAnimating) animateScroll(1);
   }
 
   const handleCardClose = (index: number) => {
@@ -98,14 +108,14 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           <button
             className="relative z-40 md:size-10 size-6 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
             onClick={scrollLeft}
-            disabled={!canScrollLeft}
+            disabled={!canScrollLeft || isAnimating}
           >
             <IconArrowNarrowLeft className="h-6 w-6 text-gray-500" />
           </button>
           <button
             className="relative z-40 md:size-10 size-6 rounded-full bg-gray-100 flex items-center justify-center disabled:opacity-50"
             onClick={scrollRight}
-            disabled={!canScrollRight}
+            disabled={!canScrollRight || isAnimating}
           >
             <IconArrowNarrowRight className="h-6 w-6 text-gray-500" />
           </button>
@@ -129,19 +139,17 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
           >
             {items.map((item, index) => (
               <motion.div
-                initial={{
-                  opacity: 0,
-                  y: 20,
-                }}
-                animate={{
+                initial={false}
+                animate={isAnimating ? {
+                  opacity: 0.7,
+                  x: direction > 0 ? -40 : 40,
+                  scale: 0.97,
+                  transition: { duration: 0.22, ease: "easeInOut" }
+                } : {
                   opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: 0.5,
-                    delay: 0.2 * index,
-                    ease: "easeOut",
-                    once: true,
-                  },
+                  x: 0,
+                  scale: 1,
+                  transition: { duration: 0.22, ease: "easeInOut" }
                 }}
                 key={"card" + index}
                 className="last:pr-[5%] md:last:pr-[5%]  rounded-3xl"
@@ -171,6 +179,11 @@ export const Card = ({
   const containerRef = useRef<HTMLDivElement>(null)
   const { onCardClose } = useContext(CarouselContext)
 
+  const handleClose = useCallback(() => {
+    setOpen(false)
+    onCardClose(index)
+  }, [setOpen, onCardClose, index])
+
   useEffect(() => {
     function onKeyDown(event: KeyboardEvent) {
       if (event.key === "Escape") {
@@ -186,17 +199,12 @@ export const Card = ({
 
     window.addEventListener("keydown", onKeyDown)
     return () => window.removeEventListener("keydown", onKeyDown)
-  }, [open])
+  }, [open, handleClose])
 
   useOutsideClick(containerRef as any, () => handleClose())
 
   const handleOpen = () => {
     // setOpen(true)
-  }
-
-  const handleClose = () => {
-    setOpen(false)
-    onCardClose(index)
   }
 
   return (

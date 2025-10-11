@@ -45,7 +45,7 @@ export const Logo: React.FC<LogoProps> = ({ className }) => {
       initial="initial"
       whileHover="hover"
     >
-      {["K", "A", "L", "D"].map((letter, i) => (
+      {["L", "A", "B"].map((letter, i) => (
         <motion.text
           key={i}
           x={2 + i * 20} // Giảm từ 5 thành 2 để dịch sang trái

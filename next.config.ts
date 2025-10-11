@@ -13,7 +13,13 @@ const nextConfig: NextConfig = {
       { hostname: "assets.aceternity.com" },
       { hostname: "images.unsplash.com" },
     ],
+    unoptimized: true,
   },
+  output: 'export',
+  basePath: process.env.NODE_ENV === 'production' ? '/lab-portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/lab-portfolio' : '',
+  distDir: 'out',
+  trailingSlash: true,
 }
 
 export default nextConfig

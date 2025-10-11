@@ -99,7 +99,7 @@ export function MyInformation() {
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.5, delay: 0.7 }}
                         className="relative z-20 text-sm sm:text-base text-neutral-500 font-medium uppercase text-center md:text-left">
-                        Python | Java Developer
+                        Software Developer
                       </motion.p>
                     </div>
                   </motion.div>
@@ -371,13 +371,19 @@ const KeySkills = () => {
       color: "rgb(224 231 255)",
       darkColor: "rgba(99, 102, 241, 0.2)",
     },
+    // {
+    //   name: "Java",
+    //   color: "rgb(237 233 254)",
+    //   darkColor: "rgba(124, 58, 237, 0.2)",
+    // },
     {
-      name: "Java",
-      color: "rgb(237 233 254)",
-      darkColor: "rgba(124, 58, 237, 0.2)",
+      name: "Docker",
+      color: "rgb(207 250 254)",
+      darkColor: "rgba(6, 182, 212, 0.2)",
     },
-    {
-      name: "Tailwind CSS",
+
+        {
+      name: "Bash",
       color: "rgb(207 250 254)",
       darkColor: "rgba(6, 182, 212, 0.2)",
     },
