@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     title: "About",
     description:
       "Learn more about LAB - Projects about AI System.",
-    // images: ["https://kyoz004.github.io/kietdo-portfolio/images/seo/about-og-image.png"],
+    // images: ["https://kyoz004.github.io/lab-portfolio/images/seo/about-og-image.png"],
   },
   alternates: {
     canonical: "https://kyoz004.github.io/lab-portfolio/about",

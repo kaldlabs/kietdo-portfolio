@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   Briefcase,
-  Wrench,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { projects } from "@/data/projects";
@@ -72,60 +71,7 @@ const projectsAsExperience: ExperienceItem[] = projects.map((project, index) => 
 // Combine projects with additional sections
 const experienceData: ExperienceItem[] = [
   ...projectsAsExperience,
-  {
-    id: "skills",
-    title: "Technical Skills",
-    icon: <Wrench />,
-    date: "Core Competencies",
-    content: {
-      heading: "Languages, Frameworks, and Tools",
-      subheading: "A versatile and modern technology stack.",
-      description: "Proficient in a wide range of technologies for development, data, and operations.",
-      skillCategories: [
-        {
-          title: "Development Stack",
-          skills: [
-            { name: "Python", type: "language" },
-            { name: "Java", type: "language" },
-            { name: "JavaScript", type: "language" },
-            { name: "React", type: "frontend" },
-            { name: "Next.js", type: "frontend" },
-            { name: "Node.js", type: "backend" },
-            { name: "Flask", type: "backend" },
-            { name: "Django", type: "backend" },
-            
-          ],
-        },
-        {
-          title: "DevOps, MLOps & Infrastructure",
-          skills: [
-            { name: "Docker", type: "devops" },
-            { name: "Jenkins CI/CD", type: "devops" },
-            { name: "GCP", type: "devops" },
-            { name: "MLflow", type: "mlops" },
-            { name: "TensorFlow Serving", type: "mlops" },
-          ],
-        },
-        {
-          title: "Data & Databases",
-          skills: [
-            { name: "PostgreSQL", type: "database" },
-            { name: "MongoDB", type: "database" },
-            { name: "Neo4j", type: "database" },
-            { name: "Dataiku", type: "data-tool" },
-          ],
-        },
-        {
-          title: "Linux Systems",
-          skills: [
-            { name: "Ubuntu Server", type: "os" },
-            { name: "Bash/Shell Scripting", type: "os" },
-            { name: "Systemd", type: "os" },
-          ],
-        },
-      ],
-    },
-  },
+  
 
 ];
 
