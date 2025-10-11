@@ -16,7 +16,7 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
   return (
     <div className="relative bg-white dark:bg-neutral-900 rounded-2xl shadow-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-2xl transition-all duration-300 flex flex-col">
       {/* Image Section - Improved aspect ratio and styling */}
-      <div className="relative h-104 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-neutral-800 dark:via-neutral-850 dark:to-neutral-900 overflow-hidden group">
+      <div className="relative h-64 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-neutral-800 dark:via-neutral-850 dark:to-neutral-900 overflow-hidden group">
         <Image
           src={project.image}
           alt={project.title}
@@ -269,6 +269,18 @@ export function ProjectCardsCarousel() {
                 <X className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />
               </button>
             </div>
+
+            {/* Modal Image */}
+            {selectedProject.image && (
+              <div className="relative h-72 w-full overflow-hidden">
+                <Image
+                  src={selectedProject.image}
+                  alt={`Image for ${selectedProject.title}`}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
 
             {/* Modal Content */}
             <div className="p-6 space-y-6">

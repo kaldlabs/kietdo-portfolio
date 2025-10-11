@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     // images: ["https://kyoz004.github.io/kietdo-portfolio/images/seo/about-og-image.png"],
   },
   alternates: {
-    canonical: "https://kyoz004.github.io/kietdo-portfolio/about",
+    canonical: "https://kyoz004.github.io/lab-portfolio/about",
   },
 }
 
