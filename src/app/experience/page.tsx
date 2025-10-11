@@ -1,11 +1,20 @@
-import { ExperienceTimeline } from "./containers/experience-timeline";
+// src/app/page.tsx
 
-const ExperiencePage = () => {
+import { MyUniverse } from "@/containers/my-universe";
+import { ProjectCardsCarousel } from "@/app/projects/project-list";
+
+export default function Home() {
   return (
-    <div>
-      <ExperienceTimeline />
-    </div>
-  );
-};
+    <main className="container mx-auto px-4 py-8 md:py-16">
+      {/* Hero section "Hello, I'm Kiet Do" */}
+      <section className="mb-16 md:mb-24">
+        <MyUniverse />
+      </section>
 
-export default ExperiencePage;
+      {/* Project Carousel section */}
+      <section>
+        <ProjectCardsCarousel />
+      </section>
+    </main>
+  );
+}

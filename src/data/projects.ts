@@ -6,8 +6,8 @@ export const projects: Project[] = [
     category: "Computer Vision",
     title: "AI Vehicle & Vietnamese License Plate Recognition System",
     description: "AI system tracking real-time Vietnamese license plate detection, vehicle classification, and tracking using state-of-the-art deep learning models. The system achieves 98% accuracy in license plate recognition under various lighting and weather conditions.",
-    // image: "/lab-portfolio/images/mockup/aicamera.png",
-    image: "/images/mockup/aicamera.png",
+    image: "/lab-portfolio/images/mockup/aicamera.png",
+    // image: "/images/mockup/aicamera.png",
     techStack: ["Python", "PyTorch", "YOLOv8", "OpenCV", "FastAPI", "PostgreSQL"],
     features: [
       "Real-time license plate detection and OCR with 98% accuracy",
