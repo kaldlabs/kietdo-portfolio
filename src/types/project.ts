@@ -3,7 +3,6 @@ export interface Project {
   title: string;
   description: string;
   image: string;
-  detailsImage?: string;
   techStack: string[];
   features: string[];
   timeline: {

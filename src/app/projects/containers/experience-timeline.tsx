@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import {
   Briefcase,
-  Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { projects } from "@/data/projects";
@@ -36,7 +35,6 @@ interface ExperienceItem {
   date: string;
   image?: string;
   category?: string;
-  teamSize?: string;
   content: {
     heading: string;
     subheading: string;
@@ -58,9 +56,8 @@ const projectsAsExperience: ExperienceItem[] = projects.map((project, index) => 
   title: project.title,
   icon: <Briefcase />,
   category: project.category,
-  image: project.detailsImage || project.image,
+  image: project.image,
   date: new Date(project.timeline.startDate).toLocaleString('en-US', { month: 'long', year: 'numeric' }),
-  teamSize: project.team?.size,
   content: {
     heading: project.title,
     subheading: project.role,
@@ -119,31 +116,25 @@ const ContentBlock: React.FC<ContentBlockProps> = ({ item, assignRef }) => {
       className="mb-12 scroll-mt-24"
     >
       <div className="mb-4">
-        <div className="flex items-center gap-4 mb-2">
+        <div className="flex items-center gap-2 mb-2">
           {item.category && (
             <span className="text-sm bg-blue-100 text-blue-800 dark:bg-blue-900/70 dark:text-blue-200 px-3 py-1 rounded-full font-medium">
               {item.category}
             </span>
           )}
           <span className="text-sm text-blue-500 dark:text-blue-400 font-semibold">{item.date}</span>
-          {item.teamSize && (
-            <div className="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400">
-              <Users className="w-4 h-4" />
-              <span>{item.teamSize}</span>
-            </div>
-          )}
         </div>
         <h3 className="text-2xl font-bold mt-1 text-gray-900 dark:text-white">{item.content.heading}</h3>
         <p className="text-gray-600 dark:text-gray-300">{item.content.subheading}</p>
       </div>
 
       {item.image && (
-        <div className="mb-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg relative h-96">
+        <div className="mb-6 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg relative h-64">
           <Image 
             src={item.image} 
             alt={item.title} 
             fill
-            className="object-contain object-center"
+            className="object-cover object-center"
           />
         </div>
       )}
