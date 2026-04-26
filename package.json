@@ -1,13 +1,14 @@
 {
   "name": "lab-portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && gh-pages -d out -t true"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d out --dotfiles"
   },
   "homepage": "https://kyoz004.github.io/lab-portfolio",
   "dependencies": {

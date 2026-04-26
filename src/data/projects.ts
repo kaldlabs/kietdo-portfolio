@@ -4,11 +4,10 @@ import { Project } from '../types/project';
 export const projects: Project[] = [
   {
     category: "Computer Vision",
-    title: "AI Vehicle & Vietnamese License Plate Recognition System",
-    description: "AI system tracking real-time Vietnamese license plate detection, vehicle classification, and tracking using state-of-the-art deep learning models. The system achieves 98% accuracy in license plate recognition under various lighting and weather conditions.",
-    // image: "/lab-portfolio/images/mockup/aicamera.png",
-    image: "/images/mockup/aicamera.png",
-    techStack: ["Python", "PyTorch", "YOLOv8", "OpenCV", "FastAPI", "PostgreSQL"],
+    title: "AI Vehicle & License Plate Recognition System",
+    description: "Advanced AI system for real-time Vietnamese license plate detection, vehicle classification, and tracking using state-of-the-art deep learning models. The system achieves 98% accuracy in license plate recognition under various lighting and weather conditions.",
+    image: "/lab-portfolio/images/mockup/aicamera.png",
+    techStack: ["Python", "PyTorch", "YOLOv8", "OpenCV", "FastAPI", "Redis", "PostgreSQL"],
     features: [
       "Real-time license plate detection and OCR with 98% accuracy",
       "Multi-vehicle tracking across multiple camera streams",
@@ -19,13 +18,13 @@ export const projects: Project[] = [
       "Comprehensive dashboard for monitoring and analytics"
     ],
     timeline: {
-      startDate: "2024-10",
-      endDate: "2024-10"
+      startDate: "2024-10-01",
+      endDate: "2024-10-31"
     },
     role: "AI Research & Development Team",
     team: {
       size: "8 members",
-      composition: "Led by senior computer science engineer with 10+ years of experience"
+      composition: "Including AI Master's degree holder with 10+ years of experience, 3 senior ML engineers, 2 computer vision specialists, and 2 backend developers"
     }
   },
 
@@ -34,7 +33,6 @@ export const projects: Project[] = [
     title: "Traffic Violation Detection System",
     description: "Intelligent AI system for automated traffic violation detection including red light running, wrong-way driving, illegal parking, and lane violations. Integrates seamlessly with existing traffic camera infrastructure.",
     image: "/lab-portfolio/images/mockup/traffic_violation_mockup.png",
-    // image: "/lab-portfolio/images/mockup/traffic_violation_mockup.png",
     techStack: ["Python", "TensorFlow", "YOLOv8", "OpenCV", "MongoDB"],
     features: [
       "Multi-type violation detection (red light, wrong lane, speeding, illegal parking)",

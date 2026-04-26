@@ -1,16 +1,25 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  // Bật chế độ xuất tĩnh (static export)
-  output: 'export',
+import type { NextConfig } from "next"
 
-  // Tên repository của bạn
-  basePath: '/lab-portfolio',
-  assetPrefix: '/lab-portfolio/',
-
-  // Tắt tối ưu hóa hình ảnh vì GitHub Pages không hỗ trợ
+const nextConfig: NextConfig = {
+  /* config options here */
+  experimental: {
+    // reactCompiler: true,
+  },
   images: {
+    remotePatterns: [
+      { hostname: "pbs.twimg.com" },
+      { hostname: "yt3.googleusercontent.com" },
+      { hostname: "cdn.prod.website-files.com" },
+      { hostname: "assets.aceternity.com" },
+      { hostname: "images.unsplash.com" },
+    ],
     unoptimized: true,
   },
-};
+  output: 'export',
+  basePath: process.env.NODE_ENV === 'production' ? '/lab-portfolio' : '',
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/lab-portfolio' : '',
+  distDir: 'out',
+  trailingSlash: true,
+}
 
-module.exports = nextConfig;
+export default nextConfig

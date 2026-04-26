@@ -34,7 +34,7 @@
     ".next/types/**/*.ts",
     "next-env.d.ts",
     "out/types/**/*.ts"
-, "src/containers/about-me/card-info.tsxs", "src/containers/about-me/index.tssx"  ],
+  ],
   "exclude": [
     "node_modules"
   ]
