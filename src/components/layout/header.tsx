@@ -26,7 +26,7 @@ import {
 const links = [
   {
     title: "Projects",
-    href: "/projects",
+    href: "/",
   },
   {
     title: "About",
