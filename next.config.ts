@@ -1,16 +1,14 @@
+const isProd = process.env.IS_GITHUB_PAGES === 'true';
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Bật chế độ xuất tĩnh (static export)
   output: 'export',
-
-  // Tên repository của bạn
-  basePath: '/lab-portfolio',
-  assetPrefix: '/lab-portfolio/',
-
-  // Tắt tối ưu hóa hình ảnh vì GitHub Pages không hỗ trợ
+  basePath: isProd ? '/lab-portfolio' : '',
+  assetPrefix: isProd ? '/lab-portfolio/' : '',
   images: {
     unoptimized: true,
   },
-};
+  trailingSlash: true,
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

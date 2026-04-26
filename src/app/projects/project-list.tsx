@@ -16,7 +16,7 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
   return (
     <div className="relative bg-white dark:bg-neutral-900 rounded-2xl shadow-lg overflow-hidden border border-neutral-200 dark:border-neutral-800 hover:shadow-2xl transition-all duration-300 flex flex-col">
       {/* Image Section */}
-      <div className="relative h-64 overflow-hidden group">
+      <div className="relative h-60 overflow-hidden group">
         <Image
           src={project.image}
           alt={project.title}
@@ -35,7 +35,7 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
         <h3 className="text-2xl font-bold text-neutral-900 dark:text-white mb-3">
           {project.title}
         </h3>
-        <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-5">
+        <p className="text-neutral-600 dark:text-neutral-400 text-sm leading-relaxed mb-5 line-clamp-3">
           {project.description}
         </p>
 
@@ -65,48 +65,24 @@ const ProjectCard = ({ project, onViewDetails }: ProjectCardProps) => {
   );
 };
 
-// --- Main Carousel Component ---
+// --- Main Project List Component ---
 export function ProjectCardsCarousel() {
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   
   const sortedProjects = [...projects].sort((a, b) => 
     new Date(b.timeline.startDate).getTime() - new Date(a.timeline.startDate).getTime()
   );
-
-  const nextProject = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === sortedProjects.length - 1 ? 0 : prevIndex + 1));
-  };
-
-  const previousProject = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? sortedProjects.length - 1 : prevIndex - 1));
-  };
   
   const handleViewDetails = (project: Project) => setSelectedProject(project);
   const handleCloseDetails = () => setSelectedProject(null);
 
   return (
     <div className="w-full relative">
-      {/* Navigation Buttons */}
-      <button onClick={previousProject} className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 p-2 rounded-full bg-white/80 dark:bg-neutral-800/80 shadow-md border dark:border-neutral-700">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m15 18-6-6 6-6"/></svg>
-      </button>
-      <button onClick={nextProject} className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 p-2 rounded-full bg-white/80 dark:bg-neutral-800/80 shadow-md border dark:border-neutral-700">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="m9 18 6-6-6-6"/></svg>
-      </button>
-      
-      {/* Project Cards Container */}
-      <div className="overflow-hidden relative mx-8">
-        <div
-          className="transition-transform duration-500 ease-in-out flex"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {sortedProjects.map((project, index) => (
-            <div key={index} className="w-full flex-shrink-0 px-4">
-              <ProjectCard project={project} onViewDetails={handleViewDetails} />
-            </div>
-          ))}
-        </div>
+      {/* Project Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedProjects.map((project) => (
+          <ProjectCard key={project.title} project={project} onViewDetails={handleViewDetails} />
+        ))}
       </div>
 
       {/* Details Modal */}
@@ -124,7 +100,14 @@ export function ProjectCardsCarousel() {
             </div>
             
             <div className="p-6 space-y-6">
-              <p>{selectedProject.description}</p>
+              <div className="relative w-full h-64 md:h-80 rounded-lg overflow-hidden">
+                <Image
+                  src={selectedProject.detailsImage || selectedProject.image}
+                  alt={selectedProject.title}
+                  fill
+                  className="object-contain"
+                />
+              </div>
               {selectedProject.features && (
                 <div>
                   <h4 className="font-semibold mb-2">Key Features:</h4>

@@ -7,12 +7,15 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && gh-pages -d out -t"
+    "build:github": "cross-env IS_GITHUB_PAGES=true next build",
+    "deploy": "npm run build:github && gh-pages -d out",
+    "serve": "npx serve@latest out"
   },
   "homepage": "https://kyoz004.github.io/lab-portfolio",
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.6",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
+    "@radix-ui/react-select": "^2.2.6",
     "@radix-ui/react-slot": "^1.2.0",
     "@react-three/fiber": "^9.1.0",
     "@tabler/icons-react": "^3.31.0",
@@ -28,6 +31,7 @@
     "lucide-react": "^0.484.0",
     "motion": "^12.6.5",
     "next": "15.2.4",
+    "next-intl": "^4.3.12",
     "next-themes": "^0.4.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -43,6 +47,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "gh-pages": "^6.3.0",
