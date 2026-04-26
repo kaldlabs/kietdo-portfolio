@@ -6,7 +6,7 @@ export const projects: Project[] = [
     category: "Computer Vision",
     title: "AI Vehicle & License Plate Recognition System",
     description: "Advanced AI system for real-time Vietnamese license plate detection, vehicle classification, and tracking using state-of-the-art deep learning models. The system achieves 98% accuracy in license plate recognition under various lighting and weather conditions.",
-    image: "/lab-portfolio/images/mockup/aicamera.png",
+    image: "/images/mockup/aicamera.png",
     techStack: ["Python", "PyTorch", "YOLOv8", "OpenCV", "FastAPI", "Redis", "PostgreSQL"],
     features: [
       "Real-time license plate detection and OCR with 98% accuracy",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     category: "Computer Vision",
     title: "Traffic Violation Detection System",
     description: "Intelligent AI system for automated traffic violation detection including red light running, wrong-way driving, illegal parking, and lane violations. Integrates seamlessly with existing traffic camera infrastructure.",
-    image: "/lab-portfolio/images/mockup/traffic_violation_mockup.png",
+    image: "/images/mockup/traffic_violation_mockup.png",
     techStack: ["Python", "TensorFlow", "YOLOv8", "OpenCV", "MongoDB"],
     features: [
       "Multi-type violation detection (red light, wrong lane, speeding, illegal parking)",
@@ -56,7 +56,7 @@ export const projects: Project[] = [
     category: "Natural Language Processing",
     title: "RAG-Based Intelligent Chatbot",
     description: "Advanced Retrieval-Augmented Generation (RAG) chatbot leveraging large language models and vector databases to provide accurate, context-aware responses. Designed for enterprise knowledge management and customer support automation.",
-    image: "/lab-portfolio/images/mockup/rag_chatbot_mockup.png",
+    image: "/images/mockup/rag_chatbot_mockup.png",
     techStack: ["Python", "LangChain", "OpenAI GPT-4", "Pinecone", "FastAPI", "React", "Docker"],
     features: [
       "Advanced RAG architecture with semantic search",
